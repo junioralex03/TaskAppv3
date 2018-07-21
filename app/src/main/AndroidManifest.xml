@@ -17,9 +17,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".vista.CategoriaActivity" />
-        <activity android:name=".vista.CategoriaListaActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".RegistroActivity"></activity>
+        <activity android:name=".vista.CategoriaListaActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".RegistroActivity" />
+        <activity android:name=".TecnicoActivity" />
+        <activity android:name=".NormalActivity"></activity>
     </application>
 
 </manifest>

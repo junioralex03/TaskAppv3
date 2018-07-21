@@ -83,7 +83,7 @@ public class UsuarioRepositorioDbImp implements UsuarioRepositorio {
     @Override
     public Usuario buscar(String userName) {
 
-        List<Usuario> usuarios = new ArrayList<>();
+        Usuario usuarios = null;
 
         SQLiteDatabase db = conexionDb.getReadableDatabase();
         String[] columnas = {"id", CAMPO_NOMBRE, CAMPO_EMAIL, CAMPO_CONTRASENA , CAMPO_TIPOUSUARIO};
@@ -91,7 +91,7 @@ public class UsuarioRepositorioDbImp implements UsuarioRepositorio {
         Cursor cr = db.query(TABLA_USUARIO, columnas, CAMPO_EMAIL + " = ?", args , null, null, null);
         cr.moveToFirst();
 
-        while (!cr.isAfterLast()) {
+        if (!cr.isAfterLast()) {
             int id = cr.getInt(cr.getColumnIndex("id"));
             String nombre = cr.getString(cr.getColumnIndex(CAMPO_NOMBRE) );
             String email = cr.getString(cr.getColumnIndex(CAMPO_EMAIL) );
@@ -99,13 +99,13 @@ public class UsuarioRepositorioDbImp implements UsuarioRepositorio {
             String tipoUsuario = cr.getString(cr.getColumnIndex(CAMPO_TIPOUSUARIO) );
 
 
-            usuarios.add( new Usuario(id, nombre, email,  contrasena, Usuario.TipoUsuario.valueOf(tipoUsuario)));
+           usuarios = new Usuario(id, nombre, email,  contrasena, Usuario.TipoUsuario.valueOf(tipoUsuario));
             cr.moveToNext();
         }
         cr.close();
         db.close();
 
-        return (Usuario) usuarios;
+        return usuarios;
     }
 
     @Override
