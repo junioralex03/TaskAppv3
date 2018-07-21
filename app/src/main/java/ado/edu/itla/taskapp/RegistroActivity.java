@@ -32,8 +32,8 @@ public class RegistroActivity extends AppCompatActivity {
         final EditText txtEmailUsuario = (EditText) findViewById(R.id.txtEmailUsuario);
         final EditText txtContrasena = (EditText) findViewById(R.id.txtContrasena);
         final EditText txtContrasenaConfirmar = (EditText) findViewById(R.id.txtContrasenaConfirmar);
-        final RadioButton rbtnTecnico = (RadioButton) findViewById(R.id.rbtnTipoTecnico);
-        final RadioButton rbtnNormal = (RadioButton) findViewById(R.id.rbtnTipoNormal);
+        final RadioButton rbtnTecnico = (RadioButton) findViewById(R.id.rbtnTecnico);
+        final RadioButton rbtnNormal = (RadioButton) findViewById(R.id.rbtnNormal);
         final TextView txtValidacionContrasena = findViewById(R.id.txtValidacionContrasena);
 
 
@@ -48,13 +48,16 @@ public class RegistroActivity extends AppCompatActivity {
                 usuario.setNombre(txtNombreUsuario.getText().toString());
                 usuario.setEmail(txtEmailUsuario.getText().toString());
                 usuario.setContrasena(txtContrasena.getText().toString());
-                if(rbtnNormal.isChecked()==true){
-                    usuario.setTipoUsuario(Usuario.TipoUsuario.valueOf(rbtnNormal.getText().toString()));
-                } else
-                if
-                        (rbtnTecnico.isChecked()==true){
-                    usuario.setTipoUsuario(Usuario.TipoUsuario.valueOf(rbtnTecnico.getText().toString()));
-                }
+                if(rbtnNormal.isChecked())
+                    usuario.setTipoUsuario(Usuario.TipoUsuario.valueOf(rbtnNormal.getText().toString().toUpperCase()));
+                else
+                    usuario.setTipoUsuario(Usuario.TipoUsuario.valueOf(rbtnTecnico.getText().toString().toUpperCase()));
+
+//                if (txtContrasena.getText() != txtContrasenaConfirmacion.getText()){
+                //    txtValidar,
+
+//                }
+
                 Log.i(LOG_TAG, usuario.toString());
 
                 usuarioRepositorio.guardar(usuario);

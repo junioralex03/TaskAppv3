@@ -127,14 +127,14 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/rbtnTipoTecnico"
+                    android:id="@+id/rbtnTecnico"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".50"
                     android:text="Tecnico" />
 
                 <RadioButton
-                    android:id="@+id/rbtnTipoNormal"
+                    android:id="@+id/rbtnNormal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".50"
@@ -169,5 +169,17 @@
 
 
     </LinearLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/txtValidar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="hint"
+            android:textColorLink="@android:color/holo_red_dark" />
+    </android.support.design.widget.TextInputLayout>
 
 </LinearLayout>

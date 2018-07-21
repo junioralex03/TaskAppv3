@@ -1,6 +1,11 @@
 package ado.edu.itla.taskapp.entidad;
 
-public class Usuario {
+import android.content.Intent;
+
+import java.io.Serializable;
+
+
+public class Usuario implements Serializable{
 
     public enum TipoUsuario{
         TECNICO, NORMAL
@@ -14,7 +19,9 @@ public class Usuario {
     private TipoUsuario tipoUsuario;
 
     public Usuario() {
+
     }
+
     public Usuario(Integer id, String nombre, String email, String contrasena, TipoUsuario tipoUsuario) {
         this.id = id;
         this.nombre = nombre;
@@ -22,7 +29,6 @@ public class Usuario {
         this.contrasena = contrasena;
         this.tipoUsuario = tipoUsuario;
     }
-
 
     public Integer getId() {
         return id;
