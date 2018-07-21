@@ -11,9 +11,10 @@ public class Usuario {
     private String email;
     private String contrasena;
 
-
     private TipoUsuario tipoUsuario;
 
+    public Usuario() {
+    }
     public Usuario(Integer id, String nombre, String email, String contrasena, TipoUsuario tipoUsuario) {
         this.id = id;
         this.nombre = nombre;

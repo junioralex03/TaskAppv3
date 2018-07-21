@@ -1,98 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="ado.edu.itla.taskapp.MainActivity">
+    tools:context=".vista.RegistroActivity">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="68dp"
-        android:text="TaskApp"
+        android:layout_height="wrap_content"
+        android:text="Registro de Usuarios"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="24sp" />
+        android:textSize="26sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="dp"
-        tools:layout_editor_absoluteY="dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email"
-            android:textSize="24sp" />
+            android:textSize="24sp"/>
 
         <EditText
-            android:id="@+id/txtEmail"
+            android:id="@+id/txtEmailUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textSize="24sp"/>
+
+        <EditText
+            android:id="@+id/txtNombreUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Contraceña"
-            android:textSize="24sp" />
+            android:text="Contraseña"
+            android:textSize="24sp"/>
 
         <EditText
-            android:id="@+id/rxrContracena"
+            android:id="@+id/txtContrasena"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Confimar Contraceña"
-            android:textSize="24sp" />
+            android:text="Confirmar Contraseña"
+            android:textSize="24sp"/>
 
         <EditText
-            android:id="@+id/rxrContracena2"
+            android:id="@+id/txtContrasenaConfirmar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword" />
 
-        <RadioButton
-            android:id="@+id/rdTecnico"
-            android:layout_width="117dp"
-            android:layout_height="wrap_content"
-            android:text="TECNICO" />
+    </LinearLayout>
 
-        <RadioButton
-            android:id="@+id/rdNormal"
-            android:layout_width="118dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtValidacionContrasena"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="NORMAL" />
+            android:text=""
+            android:textSize="10sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo de Usuario"
+            android:textSize="24sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".50"
+                android:checkedButton="@+id/rbtnTipoTecnico"
+                android:clickable="false"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbtnTipoTecnico"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".50"
+                    android:text="Tecnico" />
+
+                <RadioButton
+                    android:id="@+id/rbtnTipoNormal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".50"
+                    android:text="Normal" />
+
+
+            </RadioGroup>
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnRegistrar"
-            android:layout_width="173dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:text="Registrar"
-            tools:layout_editor_absoluteX="220dp"
-            tools:layout_editor_absoluteY="63dp" />
-
+            android:layout_weight=".50"
+            android:text="Registrar" />
         <Button
             android:id="@+id/btnCancelar"
-            android:layout_width="173dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:text="Registrar"
-            tools:layout_editor_absoluteX="220dp"
-            tools:layout_editor_absoluteY="63dp" />
+            android:layout_weight=".50"
+            android:text="Cancelar" />
+
+
+
     </LinearLayout>
 
-
 </LinearLayout>
-

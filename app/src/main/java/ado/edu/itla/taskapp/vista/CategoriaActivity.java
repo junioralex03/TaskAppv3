@@ -41,6 +41,7 @@ public class CategoriaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
                 if (categoria == null) {
                     categoria = new Categoria();
                 }

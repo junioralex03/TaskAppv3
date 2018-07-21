@@ -25,6 +25,7 @@ public class ConexionDb extends SQLiteOpenHelper{
         Log.i(LOG_TAG, "Creando la base de datos");
 
         db.execSQL(EstructuraDb.TABLA_CATEGORIA);
+        db.execSQL(EstructuraDb.TABLA_USUARIO);
     }
 
     @Override
