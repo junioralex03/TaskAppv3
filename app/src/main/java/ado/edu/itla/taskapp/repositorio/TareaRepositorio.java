@@ -9,7 +9,7 @@ import ado.edu.itla.taskapp.entidad.Usuario;
 public interface TareaRepositorio {
 
     boolean guardar(Tarea tarea);
-    Categoria buscar(int id);
+    Tarea buscar(int id);
     List<Tarea> buscarAsignadaA(Usuario uuuario);
     List<Tarea> buscarCreadaPor(Usuario uuuario);
 

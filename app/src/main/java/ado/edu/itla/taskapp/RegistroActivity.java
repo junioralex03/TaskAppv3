@@ -1,4 +1,5 @@
 package ado.edu.itla.taskapp;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,7 +36,7 @@ public class RegistroActivity extends AppCompatActivity {
         final RadioButton rbtnTecnico = (RadioButton) findViewById(R.id.rbtnTecnico);
         final RadioButton rbtnNormal = (RadioButton) findViewById(R.id.rbtnNormal);
         final TextView txtValidacionContrasena = findViewById(R.id.txtValidacionContrasena);
-
+        final TextInputLayout lblLogin = findViewById(R.id.lblLogin);
 
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,11 +54,11 @@ public class RegistroActivity extends AppCompatActivity {
                 else
                     usuario.setTipoUsuario(Usuario.TipoUsuario.valueOf(rbtnTecnico.getText().toString().toUpperCase()));
 
-//                if (txtContrasena.getText() != txtContrasenaConfirmacion.getText()){
-                //    txtValidar,
-
-//                }
-
+     /*            if (txtContrasena.equals("") && txtContrasenaConfirmar.equals(""))
+           lblLogin.setMensaje("Login correcto!");
+        else
+                lblLogin.tex ("Vuelva a intentarlo.")
+*/
                 Log.i(LOG_TAG, usuario.toString());
 
                 usuarioRepositorio.guardar(usuario);

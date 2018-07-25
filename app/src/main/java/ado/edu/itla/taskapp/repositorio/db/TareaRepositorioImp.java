@@ -6,7 +6,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import ado.edu.itla.taskapp.entidad.Categoria;
 import ado.edu.itla.taskapp.entidad.Tarea;
 import ado.edu.itla.taskapp.entidad.Usuario;
 import ado.edu.itla.taskapp.repositorio.TareaRepositorio;
@@ -57,7 +56,7 @@ public class TareaRepositorioImp implements TareaRepositorio{
     }
 
     @Override
-    public Categoria buscar(int id) {
+    public Tarea buscar(int id) {
         return null;
     }
 

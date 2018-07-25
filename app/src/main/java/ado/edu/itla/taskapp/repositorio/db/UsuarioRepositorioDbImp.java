@@ -59,7 +59,7 @@ public class UsuarioRepositorioDbImp implements UsuarioRepositorio {
     }
 
     @Override
-    public Usuario buscar(int id) {
+    public final Usuario buscar(int id) {
 
         SQLiteDatabase db = conexionDb.getReadableDatabase();
         String[] columnas = {"id", CAMPO_NOMBRE, CAMPO_EMAIL, CAMPO_CONTRASENA , CAMPO_TIPOUSUARIO};
