@@ -21,7 +21,10 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".RegistroActivity" />
         <activity android:name=".TecnicoActivity" />
-        <activity android:name=".NormalActivity"></activity>
+        <activity android:name=".NormalActivity" />
+        <activity android:name=".TareaActivity" />
+        <activity android:name=".TareaAsignarActivity" />
+        <activity android:name=".TareaDetalleActivity"></activity>
     </application>
 
 </manifest>

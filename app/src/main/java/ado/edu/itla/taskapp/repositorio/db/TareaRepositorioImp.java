@@ -42,17 +42,23 @@ public class TareaRepositorioImp implements TareaRepositorio{
         cv.put(CAMPO_CATEGORIA_ID, tarea.getCategoria().toString());
         cv.put(CAMPO_USUARIO_ASIGNADO_ID, tarea.getUsuarioAsignado().toString());
         SQLiteDatabase db = conexionDb.getWritableDatabase();
-        Long id = db.insert(TABLA_TAREA,null, cv);
 
-        db.close();
+        if(tarea.getId() != null && tarea.getId() > 0){
+            int cantidad = db.update(TABLA_TAREA,cv, "id = ?", new String[]{tarea.getId().toString()});
+            db.close();
+            return cantidad > 0;
+        }
+        else {
+            Long id = db.insert(TABLA_TAREA, null, cv);
+            db.close();
 
-        if (id.intValue() > 0){
-            tarea.setId(id.intValue());
-            return true;
+            if(id.intValue() > 0){
+                tarea.setId(id.intValue());
+                return true;
+            }
         }
 
         return false;
-
     }
 
     @Override

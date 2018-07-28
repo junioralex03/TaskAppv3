@@ -13,6 +13,8 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.TextView;
 
+import java.io.CharArrayReader;
+
 import ado.edu.itla.taskapp.MainActivity;
 import ado.edu.itla.taskapp.R;
 import ado.edu.itla.taskapp.entidad.Usuario;
@@ -22,17 +24,14 @@ import ado.edu.itla.taskapp.repositorio.db.UsuarioRepositorioDbImp;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private ConexionDb conexionDb;
+
     //Validamos el usuario y la contraseña
 
      ;
     private static final String LOG_TAG = "LogInActivity";
    // TextView = (AutoCompleteTextView) findViewById(R.id.txtUsuario);
 
-    final EditText txtUsuario = (EditText) findViewById(R.id.txtUsuario);
-    final EditText txtClave = (EditText) findViewById(R.id.txtClave);
-
-    @Override
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -50,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent intent = new Intent ( LoginActivity.this, MainActivity.class);
+               Intent intent = new Intent ( LoginActivity.this, TareaAsignarActivity.class);
                 startActivity(intent);
             }
         });
