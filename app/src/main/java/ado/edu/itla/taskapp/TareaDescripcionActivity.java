@@ -3,7 +3,7 @@ package ado.edu.itla.taskapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class TareaDetalleActivity extends AppCompatActivity {
+public class TareaDescripcionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

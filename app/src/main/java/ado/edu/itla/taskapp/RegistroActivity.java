@@ -1,4 +1,5 @@
 package ado.edu.itla.taskapp;
+import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ public class RegistroActivity extends AppCompatActivity {
         usuarioRepositorio = new UsuarioRepositorioDbImp(this);
 
         Button btnRegistrar = findViewById(R.id.btnRegistrar);
+        Button btnCancelarRegistro = findViewById(R.id.btnCancelarRegistro);
         final EditText txtNombreUsuario = (EditText) findViewById(R.id.txtNombreUsuario);
         final EditText txtEmailUsuario = (EditText) findViewById(R.id.txtEmailUsuario);
         final EditText txtContrasena = (EditText) findViewById(R.id.txtContrasena);
@@ -36,7 +38,7 @@ public class RegistroActivity extends AppCompatActivity {
         final RadioButton rbtnTecnico = (RadioButton) findViewById(R.id.rbtnTecnico);
         final RadioButton rbtnNormal = (RadioButton) findViewById(R.id.rbtnNormal);
         final TextView txtValidacionContrasena = findViewById(R.id.txtValidacionContrasena);
-        final TextInputLayout lblLogin = findViewById(R.id.lblLogin);
+       // final TextInputEditText lblLogin = findViewById(R.id.lblLogin);
 
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,11 +61,20 @@ public class RegistroActivity extends AppCompatActivity {
         else
                 lblLogin.tex ("Vuelva a intentarlo.")
 */
-                Log.i(LOG_TAG, usuario.toString());
+            //    Log.i(LOG_TAG, usuario.toString());
 
                 usuarioRepositorio.guardar(usuario);
 
                 Log.i(LOG_TAG, usuario.toString());
+            }
+        });
+
+        Button btnCancelar = findViewById(R.id.btnCancelarRegistro);
+        btnCancelarRegistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegistroActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
     }

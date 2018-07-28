@@ -24,7 +24,7 @@
         <activity android:name=".NormalActivity" />
         <activity android:name=".TareaActivity" />
         <activity android:name=".TareaAsignarActivity" />
-        <activity android:name=".TareaDetalleActivity"></activity>
+        <activity android:name=".TareaDescripcionActivity"></activity>
     </application>
 
 </manifest>

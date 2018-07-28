@@ -1,5 +1,8 @@
 package ado.edu.itla.taskapp;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,9 +21,17 @@ import ado.edu.itla.taskapp.repositorio.CategoriaRepositorio;
 import ado.edu.itla.taskapp.repositorio.TareaRepositorio;
 import ado.edu.itla.taskapp.repositorio.UsuarioRepositorio;
 import ado.edu.itla.taskapp.repositorio.db.CategoriaRepositorioDbImp;
+import ado.edu.itla.taskapp.repositorio.db.ConexionDb;
 import ado.edu.itla.taskapp.repositorio.db.UsuarioRepositorioDbImp;
 
 public class TareaActivity extends AppCompatActivity {
+    private ConexionDb conexionDb;
+
+    public TareaActivity(Context context) {
+
+        conexionDb = new ConexionDb(context);
+    }
+
     private CategoriaRepositorio categoriaRepositorio;
     private UsuarioRepositorio usuarioRepositorio;
     private List<Categoria> categorias;
@@ -50,7 +61,7 @@ public class TareaActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position != 0){
                     Categoria categoriaSeleccionada = categorias.get(position-1);
-                    Log.i("Prueba", categoriaSeleccionada.getId().toString() + " - " + categoriaSeleccionada.getNombre());
+                    Log.i("Test", categoriaSeleccionada.getId().toString() + " - " + categoriaSeleccionada.getNombre());
                 }
             }
 
@@ -60,20 +71,18 @@ public class TareaActivity extends AppCompatActivity {
             }
         });
 
-        //Obtiene y muestra la Lista de Usuarios Tecnicos
         usuarios = usuarioRepositorio.buscarTecnicos(null);
         spnUsuarioTecnico = findViewById(R.id.spnUsuarioTecnico);
         obtenerListaUsuariosTecnicos();
         ArrayAdapter<CharSequence> adaptadorUsuarioTecnico = new ArrayAdapter(this,android.R.layout.simple_spinner_item,listaUsuario);
         spnUsuarioTecnico.setAdapter(adaptadorUsuarioTecnico);
 
-        //Obtiene el Usuario seleccionado
         spnUsuarioTecnico.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position != 0){
                     Usuario usuarioTecnicoSeleccionado = usuarios.get(position-1);
-                    Log.i("PRUEBA", usuarioTecnicoSeleccionado.getId().toString() + " - " + usuarioTecnicoSeleccionado.getNombre());
+                    Log.i("Test", usuarioTecnicoSeleccionado.getId().toString() + " - " + usuarioTecnicoSeleccionado.getNombre());
                 }
             }
 
@@ -86,22 +95,16 @@ public class TareaActivity extends AppCompatActivity {
     }
 
     private void obtenerListaCategorias(){
-        listaCategoria = new ArrayList<String>();
-        listaCategoria.add("Seleccione una Categoria");
 
-        for(int i=0; i < categorias.size();i++){
-            listaCategoria.add(categorias.get(i).getId() + " - " + categorias.get(i).getNombre());
-        }
 
     }
 
     private void obtenerListaUsuariosTecnicos(){
-        listaUsuario = new ArrayList<String>();
-        listaUsuario.add("Seleccione un Técnico");
 
-        for(int i = 0; i < usuarios.size(); i++){
-            listaUsuario.add(usuarios.get(i).getId() + " - " + usuarios.get(i).getNombre());
-        }
 
-    }
-}
+        SQLiteDatabase db = conexionDb.getReadableDatabase();
+        Cursor cr = db.rawQuery("SELECT * FROM usuario WHERE tipoUsuario = tecnico", null );
+
+       // if (cr = 0)
+
+    }}

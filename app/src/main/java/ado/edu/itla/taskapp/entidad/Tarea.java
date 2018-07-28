@@ -1,9 +1,14 @@
 package ado.edu.itla.taskapp.entidad;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Tarea {
+/**
+ * Created by MESCyT on 7/7/2018.
+ */
 
-    enum TareaEstado{
+public class Tarea implements Serializable{
+
+    public enum TareaEstado{
         PENDIENTE, EN_PROCESO, TERMINADO
     }
 
@@ -12,7 +17,7 @@ public class Tarea {
     private String descripcion;
     private Date fecha;
     private Date fechaTerminado;
-    private  TareaEstado estado;
+    private TareaEstado estado;
     private Categoria categoria;
     private Usuario usuarioCreador;
     private Usuario usuarioAsignado;

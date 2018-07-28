@@ -159,8 +159,9 @@
             android:layout_height="wrap_content"
             android:layout_weight=".50"
             android:text="Registrar" />
+
         <Button
-            android:id="@+id/btnCancelar"
+            android:id="@+id/btnCancelarRegistro"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight=".50"
@@ -174,12 +175,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/lblLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint"
-            android:textColorLink="@android:color/holo_red_dark" />
     </android.support.design.widget.TextInputLayout>
 
 </LinearLayout>
