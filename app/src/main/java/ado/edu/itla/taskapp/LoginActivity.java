@@ -18,23 +18,22 @@ import java.io.CharArrayReader;
 import ado.edu.itla.taskapp.MainActivity;
 import ado.edu.itla.taskapp.R;
 import ado.edu.itla.taskapp.entidad.Usuario;
-import ado.edu.itla.taskapp.repositorio.db.ConexionDb;
-import ado.edu.itla.taskapp.repositorio.db.TareaRepositorioImp;
+import ado.edu.itla.taskapp.entidad.UsuarioActivo;
+import ado.edu.itla.taskapp.repositorio.UsuarioRepositorio;
 import ado.edu.itla.taskapp.repositorio.db.UsuarioRepositorioDbImp;
 
 public class LoginActivity extends AppCompatActivity {
 
-
-    //Validamos el usuario y la contraseña
-
-     ;
     private static final String LOG_TAG = "LogInActivity";
-   // TextView = (AutoCompleteTextView) findViewById(R.id.txtUsuario);
+    private UsuarioRepositorio usuarioRepositorio;
+    private Usuario usuario;
 
-        @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        usuarioRepositorio = new UsuarioRepositorioDbImp(this);
 
         Button btnRegistrarse = findViewById(R.id.btnRegistrar);
         btnRegistrarse.setOnClickListener(new View.OnClickListener() {
@@ -45,15 +44,45 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-         Button btnEntrar = findViewById(R.id.btnEntrar);
+
+
+
+        Button btnEntrar = findViewById(R.id.btnEntrar);
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent intent = new Intent ( LoginActivity.this, TareaAsignarActivity.class);
-                startActivity(intent);
+
+                final EditText txtEmailUsuario = (EditText) findViewById(R.id.txtNombreUsuario);
+                final EditText txtContrasenaUsuario = (EditText) findViewById(R.id.txtUsuario);
+                final TextView lblMensaje = (TextView) findViewById(R.id.lblMensaje);
+
+                Usuario us =(Usuario) usuarioRepositorio.buscar(txtEmailUsuario.getText().toString());
+                if (us != null){
+                    UsuarioActivo usuarioLogeado = UsuarioActivo.getInstance(us);
+                    Log.i(LOG_TAG, us.getId().toString() + " - " + us.getEmail() + " - " + us.getNombre() + " - " + us.getContrasena());
+
+                    if(us.getContrasena().equals(txtContrasenaUsuario.getText().toString()) && us.getTipoUsuario().equals(Usuario.TipoUsuario.NORMAL)) {
+                        Intent intent = new Intent(LoginActivity.this, NormalActivity.class);
+                        startActivity(intent);
+                    }
+                    else if (us.getContrasena().equals(txtContrasenaUsuario.getText().toString()) && us.getTipoUsuario().equals(Usuario.TipoUsuario.TECNICO)){
+                        Intent intent = new Intent(LoginActivity.this,  TareaDescripcionActivity.class);
+                        startActivity(intent);
+                    }
+
+                    else {
+                        lblMensaje.setText("Usuario y contraseña no coinciden, Favor intentar nuevamente.");
+                        Log.i(LOG_TAG, "00000000fx");
+                    }
+                }
+                else{
+                    lblMensaje.setText("Usuario y contraseña no coinciden, Favor intentar nuevamente.");
+                }
+
+
+
             }
         });
     }
 
-
-    }
+}

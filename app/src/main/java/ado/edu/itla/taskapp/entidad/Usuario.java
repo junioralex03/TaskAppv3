@@ -37,10 +37,7 @@ public class Usuario implements Serializable{
     public void setId(Integer id) {
         this.id = id;
     }
-    public Usuario setId(Integer id) {
-        this.id = id;
-        return this;
-    }
+
     public String getNombre() {
         return nombre;
     }
