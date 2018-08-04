@@ -46,20 +46,20 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                final EditText txtEmailUsuario = (EditText) findViewById(R.id.txtNombreUsuario);
-                final EditText txtContrasenaUsuario = (EditText) findViewById(R.id.txtUsuario);
+                final EditText txtUsuario = (EditText) findViewById(R.id.txtUsuario);
+                final EditText txtClave = (EditText) findViewById(R.id.txtClave);
                 final TextView lblMensaje = (TextView) findViewById(R.id.lblMensaje);
 
-                Usuario us =(Usuario) usuarioRepositorio.buscar(txtEmailUsuario.getText().toString());
+                Usuario us =(Usuario) usuarioRepositorio.buscar(txtUsuario.getText().toString());
                 if (us != null){
                     UsuarioActivo usuarioLogeado = UsuarioActivo.getInstance(us);
                     Log.i(LOG_TAG, us.getId().toString() + " - " + us.getEmail() + " - " + us.getNombre() + " - " + us.getContrasena());
 
-                    if(us.getContrasena().equals(txtContrasenaUsuario.getText().toString()) && us.getTipoUsuario().equals(Usuario.TipoUsuario.NORMAL)) {
+                    if(us.getContrasena().equals(txtClave.getText().toString()) && us.getTipoUsuario().equals(Usuario.TipoUsuario.NORMAL)) {
                         Intent intent = new Intent(LoginActivity.this, NormalActivity.class);
                         startActivity(intent);
                     }
-                    else if (us.getContrasena().equals(txtContrasenaUsuario.getText().toString()) && us.getTipoUsuario().equals(Usuario.TipoUsuario.TECNICO)){
+                    else if (us.getContrasena().equals(txtClave.getText().toString()) && us.getTipoUsuario().equals(Usuario.TipoUsuario.TECNICO)){
                         Intent intent = new Intent(LoginActivity.this,  TecnicoActivity.class);
                         startActivity(intent);
                     }

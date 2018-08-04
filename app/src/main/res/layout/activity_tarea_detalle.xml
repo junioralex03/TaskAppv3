@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="ado.edu.itla.taskapp.vista.TareaDetalleActivity">
+    tools:context="ado.edu.itla.taskapp.TareaDescripcionActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

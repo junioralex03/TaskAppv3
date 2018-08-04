@@ -30,7 +30,7 @@ public class TecnicoActivity extends AppCompatActivity {
         UsuarioActivo usuarioLogeado = UsuarioActivo.getInstance();
         List<Tarea> tareas = tareaRepositorio.buscarAsignadaA(usuarioLogeado);
 
-        ListView tareaListView = (ListView) findViewById(R.id.tarea_usuario_normal_listview);
+        ListView tareaListView = (ListView) findViewById(R.id.tarea_usuario_tecnico_listview);
         tareaListView.setAdapter(new TareaListAdapterUTecnico(this, tareas));
 
         tareaListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

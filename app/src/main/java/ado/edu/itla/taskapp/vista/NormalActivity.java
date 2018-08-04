@@ -21,7 +21,7 @@ import ado.edu.itla.taskapp.repositorio.db.TareaRepositorioImp;
 public class NormalActivity extends AppCompatActivity {
 
     private TareaRepositorio tareaRepositorio;
-    private final String LOG_TAG = "TareaUsNormalActivity";
+    private final String LOG_TAG = "NormalActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class NormalActivity extends AppCompatActivity {
             }
         });
 
-        Log.i(LOG_TAG, tareas.get(1).toString());
+//        Log.i(LOG_TAG, tareas.get(1).toString());
 
     }
 }
