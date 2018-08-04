@@ -35,7 +35,7 @@ public class TareaAsignarActivity extends AppCompatActivity {
     private TareaRepositorio tareaRepositorio;
     private Tarea tarea;
     private Categoria categoria;
-    private Usuario usuarioAsignado;
+    private Usuario usuarioActivo;
     private static final String LOG_TAG = "TareaAsignarActivity";
 
 
@@ -95,8 +95,8 @@ public class TareaAsignarActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position != 0){
 
-                    usuarioAsignado = (Usuario) spnUsuarioTecnico.getSelectedItem();
-                    Log.i(LOG_TAG, usuarioAsignado.getId().toString() + " - " + usuarioAsignado.getNombre() );
+                    usuarioActivo = (Usuario) spnUsuarioTecnico.getSelectedItem();
+                    Log.i(LOG_TAG, usuarioActivo.getId().toString() + " - " + usuarioActivo.getNombre() );
                 }
             }
 
@@ -123,13 +123,13 @@ public class TareaAsignarActivity extends AppCompatActivity {
                 if (categoria == null || categoria.getId() <= 0 )
                     return;
 
-                if (usuarioAsignado.getId() == null || usuarioAsignado.getId() <= 0)
+                if (usuarioActivo.getId() == null || usuarioActivo.getId() <= 0)
                     return;
 
                 else {
 
                     tarea = new Tarea();
-                    tarea.setUsuarioAsignado(usuarioAsignado);
+                    tarea.setUsuarioAsignado(usuarioActivo);
                     tarea.setCategoria(categoria);
                     tarea.setDescripcion(txtDescripcionTarea.getText().toString());
                     tarea.setNombre(txtNombreTarea.getText().toString());

@@ -12,6 +12,7 @@ import android.widget.ListView;
 import java.util.List;
 
 import ado.edu.itla.taskapp.R;
+import ado.edu.itla.taskapp.TareaAsignarActivity;
 import ado.edu.itla.taskapp.TareaDescripcionActivity;
 import ado.edu.itla.taskapp.entidad.Tarea;
 import ado.edu.itla.taskapp.entidad.UsuarioActivo;
@@ -51,7 +52,7 @@ public class NormalActivity extends AppCompatActivity {
         btnCrearNuevaTarea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(NormalActivity.this, TareaDescripcionActivity.class);
+                Intent intent = new Intent(NormalActivity.this, TareaAsignarActivity.class);
                 startActivity(intent);
             }
         });

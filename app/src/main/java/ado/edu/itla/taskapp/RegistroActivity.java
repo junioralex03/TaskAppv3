@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.content.Intent;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.app.AlertDialog;
 
 import ado.edu.itla.taskapp.R;
 import ado.edu.itla.taskapp.entidad.Usuario;
@@ -69,6 +70,17 @@ public class RegistroActivity extends AppCompatActivity {
                 txtEmailUsuario.setText("");
                 txtContrasena.setText("");
                 txtContrasenaConfirmar.setText("");
+
+             /*   AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+                alertDialog.setTitle("Alert");
+                alertDialog.setMessage("Alert message to be shown");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });*/
+         //       alertDialog.show();
 
                 Log.i(LOG_TAG, usuario.toString());
             }
