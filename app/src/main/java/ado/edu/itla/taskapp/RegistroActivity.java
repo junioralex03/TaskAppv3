@@ -65,6 +65,11 @@ public class RegistroActivity extends AppCompatActivity {
 
                 usuarioRepositorio.guardar(usuario);
 
+                txtNombreUsuario.setText("");
+                txtEmailUsuario.setText("");
+                txtContrasena.setText("");
+                txtContrasenaConfirmar.setText("");
+
                 Log.i(LOG_TAG, usuario.toString());
             }
         });
