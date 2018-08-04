@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="ado.edu.itla.taskapp.vista.TareaDetalleActivity">
 
     <LinearLayout
@@ -11,34 +12,43 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/btnCambiarEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LISTO"
+            android:backgroundTint="#84ffff"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
             <TextView
                 android:layout_width="0sp"
-                android:layout_height="wrap_content"
                 android:layout_weight=".50"
-                android:text="Categoria:" />
+                android:layout_height="wrap_content"
+                android:text="Categoria:"
+                android:textSize="24dp"/>
 
             <TextView
                 android:id="@+id/lblFechaTarea"
                 android:layout_width="0sp"
+                android:layout_weight=".50"
                 android:layout_height="wrap_content"
+                android:text="Fecha"
+                android:textAlignment="center"
+                android:gravity="center"
                 android:layout_marginEnd="10sp"
                 android:layout_marginRight="10sp"
-                android:layout_weight=".50"
-                android:gravity="center"
-                android:text="Fecha"
-                android:textAlignment="center" />
+                android:textSize="19dp"/>
         </LinearLayout>
 
         <TextView
             android:id="@+id/lblCategoriaAsignada"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="CategoriaAsignada" />
+            android:text="CategoriaAsignada"
+            android:textSize="20dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,49 +56,70 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/lblUsuarioAsignadoTitulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Asignado a:" />
+                android:text="Asignado a:"
+                android:textSize="24dp"/>
 
             <TextView
                 android:id="@+id/lblUsuarioAsignado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="UsuarioAsignado" />
+                android:text="UsuarioAsignado"
+                android:textSize="20dp"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Estado" />
-
+                android:text="Estado"
+                android:textSize="24dp"/>
             <TextView
                 android:id="@+id/lblEstadoAsignado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="EstadoAsignado" />
+                android:text="EstadoAsignado"
+                android:textSize="20dp"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Descripcion" />
+                android:text="Asunto"
+                android:textSize="24dp"/>
+            <TextView
+                android:id="@+id/lblNombreAsignado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="NombreAsignado"
+                android:textSize="20dp"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Descripcion"
+                android:textSize="24dp"/>
             <TextView
                 android:id="@+id/lblDescripcionTarea"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="DescripcionTarea" />
+                android:text="DescripcionTarea"
+                android:textSize="20dp"
+                android:lines="6"/>
         </LinearLayout>
 
     </LinearLayout>

@@ -20,7 +20,8 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spnCategoria"/>
+            android:id="@+id/spnCategoria"
+            />
 
     </LinearLayout>
 
@@ -49,12 +50,29 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Asunto:" />
+
+        <EditText
+            android:id="@+id/txtNombreTarea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Descripción:"/>
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/txtDescripcionTarea"
             android:layout_width="match_parent"
-            android:layout_height="227dp"
+            android:layout_height="126dp"
             android:ems="10"
             android:inputType="textMultiLine" />
     </LinearLayout>
@@ -63,20 +81,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
         <Button
             android:id="@+id/btnCancelarTarea"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_weight=".50"
-            android:text="Cancelar" />
-
+            android:text="Cancelar"/>
         <Button
             android:id="@+id/btnGuardarTarea"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_weight=".50"
-            android:text="Guardar" />
+            android:text="Guardar"/>
 
     </LinearLayout>
 
