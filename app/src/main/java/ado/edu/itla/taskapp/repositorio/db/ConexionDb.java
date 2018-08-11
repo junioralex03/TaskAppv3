@@ -32,7 +32,9 @@ public class ConexionDb extends SQLiteOpenHelper{
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-    }
-}
+        if( oldVersion < newVersion){
+            onCreate(db);
+        }
+    }}

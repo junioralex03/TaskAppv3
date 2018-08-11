@@ -9,6 +9,12 @@ import android.widget.Button;
 
 import com.google.gson.Gson;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import ado.edu.itla.taskapp.entidad.Categoria;
@@ -30,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     Usuario u =g.fromJson(cadena, Usuario.class).toString()*/
 
 
-  URL gitUrl = new url = "https://api.github.com/gists/public";
+  //URL gitUrl = new url = "https://api.github.com/gists/public";
   
 
     private static final String LOG_TAG = MainActivity.class.getName();
@@ -48,6 +54,42 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Usuario u = new Usuario();
+        u.setNombre("Prueba");
+        Gson g = new Gson();
+        String json = g.toJson(u);
+        Log.i("JSON", json);
+
+
+        String usuarioSring = "{\"nombre\":\"Prueba\"}";
+        u = g.fromJson(usuarioSring, Usuario.class);
+        Log.i("JSON", u.toString());
+
+
+        try {
+            URL gitapi = new URL("https://api.github.com/gists/public");
+            HttpURLConnection connection = (HttpURLConnection) gitapi.openConnection();
+
+            if (connection.getResponseCode() == 200){
+                InputStream result = connection.getInputStream();
+
+                ByteArrayOutputStream result1 = new ByteArrayOutputStream();
+                byte[] buffer = new byte[1204];
+                int length;
+                while ((length = result.read(buffer)) != -1){
+                    result1.write(buffer, 0, length);
+                }
+
+                Log.i("API", result1.toString());
+            }
+
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }

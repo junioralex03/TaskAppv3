@@ -40,7 +40,7 @@ public class TareaListAdapterUNormal extends BaseAdapter{
 
         if (convertView == null){
             LayoutInflater inflater = LayoutInflater.from(context);
-            convertView =  inflater.inflate(R.layout.ta1rea_listview_row, null, true);
+            convertView =  inflater.inflate(R.layout.tarea_listview_row, null, true);
         }
 
         TextView lblFechaTareaAdaptador = convertView.findViewById(R.id.lblFechaTareaAdaptador);

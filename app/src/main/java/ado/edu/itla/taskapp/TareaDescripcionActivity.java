@@ -11,7 +11,7 @@ import ado.edu.itla.taskapp.entidad.Usuario;
 import ado.edu.itla.taskapp.entidad.UsuarioActivo;
 
 public class TareaDescripcionActivity extends AppCompatActivity {
-    private static final String LOG_TAG = "TareaDetalleActivity";
+    private static final String LOG_TAG = "TareaDescripcionActivity";
     private Tarea tarea;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

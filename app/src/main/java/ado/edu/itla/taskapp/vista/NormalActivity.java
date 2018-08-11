@@ -57,7 +57,6 @@ public class NormalActivity extends AppCompatActivity {
             }
         });
 
-//        Log.i(LOG_TAG, tareas.get(1).toString());
 
     }
 }

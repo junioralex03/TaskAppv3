@@ -28,7 +28,7 @@ public class TareaRepositorioImp implements TareaRepositorio{
     private static final String CAMPO_CATEGORIA_ID = "categoria_id";
     private static final String TABLA_TAREA = "tarea";
 
-    public  TareaRepositorioImp (Context context){
+    public  TareaRepositorioImp(Context context){
         conexionDb = new ConexionDb(context);
     }
     @Override
@@ -119,59 +119,10 @@ public class TareaRepositorioImp implements TareaRepositorio{
         return tareas;
     }
 
- /*   @Override
-    public List<Tarea> buscarAsignada(Usuario usuario) {
-        List<Tarea> tareas = new ArrayList<>();
-
-
-        String sql = "Select t.*, uc.nombre as nombre_usuario, c.nombre as nombre_cat from tarea t inner join usuario uc on (t.usuario_creador_id = uc.id) " +
-                "inner join categoria c on (t.categoria_id = c.id) Where t.usuario_asignada_id=?";
-        SQLiteDatabase db = conexionDb.getReadableDatabase();
-        String[] args = {usuario.getId().toString()};
-        Cursor cr = db.rawQuery(sql, args);
-
-        while (cr.moveToNext()){
-            int id = cr.getInt(cr.getColumnIndex("id"));
-            String nombre = cr.getString(cr.getColumnIndex(CAMPO_NOMBRE));
-            String descripcion = cr.getString(cr.getColumnIndex(CAMPO_DESCRIPCION));
-            Long fecha = cr.getLong(cr.getColumnIndex(CAMPO_FECHA));
-            String estado = cr.getString(cr.getColumnIndex(CAMPO_ESTADO));
-
-
-            Usuario usuarioCreador = new Usuario();
-            usuarioCreador.setId(cr.getInt(cr.getColumnIndex(CAMPO_USUARIO_CREADOR_ID)));
-            usuarioCreador.setNombre(cr.getString(cr.getColumnIndex("nombre_usuario")));
-
-            Categoria categoria = new Categoria();
-            categoria.setId(cr.getInt(cr.getColumnIndex(CAMPO_CATEGORIA_ID)));
-            categoria.setNombre(cr.getString(cr.getColumnIndex("nombre_cat")));
-
-            Date fechaCreada = new Date(fecha);
-
-            Tarea t = new Tarea();
-            t.setId(id);
-            t.setNombre(nombre);
-            t.setDescripcion(descripcion);
-            t.setFecha(fechaCreada);
-            t.setEstado(Tarea.TareaEstado.valueOf(estado));
-            t.setUsuarioCreador(usuarioCreador);
-            t.setUsuarioAsignado(usuario);
-            t.setCategoria(categoria);
-
-            tareas.add(t);
-        }
-
-        cr.close();
-        db.close();
-
-        return tareas;
-    }
-*/
     @Override
     public List<Tarea> buscarCreadaPor(Usuario usuario) {
 
         List<Tarea> tareas = new ArrayList<>();
-
 
         String sql = "Select t.*, uc.nombre as nombre_usuario, c.nombre as nombre_cat from tarea t inner join usuario uc on (t.usuario_asignado_id = uc.id) " +
                 "inner join categoria c on (t.categoria_id = c.id) Where t.usuario_creador_id = ? ";
