@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TaskAppv3.iml" filepath="$PROJECT_DIR$/TaskAppv3.iml" />
+      <module fileurl="file://C:\Users\MESCyT\Desktop\JR\TaskAppv3\TaskAppv3.iml" filepath="C:\Users\MESCyT\Desktop\JR\TaskAppv3\TaskAppv3.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\MESCyT\Desktop\JR\TaskAppv3\app\app.iml" filepath="C:\Users\MESCyT\Desktop\JR\TaskAppv3\app\app.iml" />
     </modules>
   </component>
 </project>
